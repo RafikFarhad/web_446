@@ -79,9 +79,13 @@
             @endif
 
             <div class="content">
+                <h1>Welcome to <br></h1>
                 <div class="title m-b-md">
-                    Welcome
+
+                    Sohayok <br>
                 </div>
+                <h3>                    <small>A web app for teachers and teachers</small>
+                </h3>
             </div>
         </div>
     </body>
