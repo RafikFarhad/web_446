@@ -1,7 +1,5 @@
 <?php
 
-use Route;
-
 class Menu
 {
     /**

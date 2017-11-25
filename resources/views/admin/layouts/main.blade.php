@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     @include('admin.includes.header')
-    <body class="hold-transition skin-blue sidebar-mini">
+    <body class="hold-transition skin-green sidebar-mini">
         <div class="wrapper">
             @include('admin.includes.navbar')
             @include('admin.includes.sidebar')
@@ -13,7 +13,7 @@
             <!-- /.content-wrapper -->
             @include('admin.includes.footer')
 
-            @include('admin.includes.rightSidebar')
+{{--            @include('admin.includes.rightSidebar')--}}
         </div>
         <div id="line-example"></div>
         <!-- ./wrapper -->

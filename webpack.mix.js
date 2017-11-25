@@ -5,7 +5,7 @@ mix.react('resources/assets/js/app.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css');
 
 
- mix.scripts([
+ mix.js([
  	"public/dist/bower_components/jquery/dist/jquery.min.js",
  	"public/dist/bower_components/jquery-ui/jquery-ui.min.js",
  	"public/dist/bower_components/bootstrap/dist/js/bootstrap.min.js",
@@ -34,13 +34,13 @@ mix.react('resources/assets/js/app.js', 'public/js')
  	"public/dist/bower_components/font-awesome/css/font-awesome.min.css",
  	"public/dist/bower_components/Ionicons/css/ionicons.min.css",
  	"public/dist/css/AdminLTE.min.css",
- 	// "public/dist/css/skins/_all-skins.min.css",
+ 	//"public/dist/css/skins/_all-skins.min.css",
  	"public/dist/css/skins/skin-green.min.css",
  	/*"public/dist/bower_components/morris.js/morris.css",
  	"public/dist/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css",
  	"public/dist/bower_components/bootstrap-daterangepicker/daterangepicker.css",
  	"public/dist/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css"*/
-
+     "public/dist/custom.css",
  	], 'public/css/app.css')
  .copy('public/dist/bower_components/Ionicons/fonts', 'public/fonts')
  .copy('public/dist/bower_components/font-awesome/fonts', 'public/fonts');

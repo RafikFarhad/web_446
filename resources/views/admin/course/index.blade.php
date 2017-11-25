@@ -42,14 +42,14 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($courses as $course)
+                                @foreach($courses as $single_course)
                                 <tr>
-                                    <td>{!! $course->id !!}</td>
-                                    <td>{!! $course->code !!}</td>
-                                    <td>{!! $course->title !!}</td>
-                                    <td>{!! $course->department !!}</td>
-                                    <td>{!! $course->session !!}</td>
-                                    <td>{!! Carbon::parse($course->created_at)->format('j S F, Y'); !!}</td>
+                                    <td>{!! $single_course->id !!}</td>
+                                    <td>{!! $single_course->code !!}</td>
+                                    <td><a href="{!! route('single.course', [$single_course->id]) !!}">{!! $single_course->title !!}</a></td>
+                                    <td>{!! $single_course->department !!}</td>
+                                    <td>{!! $single_course->session !!}</td>
+                                    <td>{!! Carbon::parse($single_course->created_at)->format('j S F, Y'); !!}</td>
                                 </tr>
                                 @endforeach
                             </tbody>
