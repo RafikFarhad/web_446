@@ -28,7 +28,7 @@
                     <div class="icon">
                         <i class="fa fa-users"></i>
                     </div>
-                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="{!! route('course.index') !!}" class="small-box-footer"> Go to all courses <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             {{--<!-- ./col -->--}}

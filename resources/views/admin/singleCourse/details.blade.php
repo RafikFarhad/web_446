@@ -44,7 +44,7 @@
                 <!-- small box -->
                 <div class="small-box bg-yellow">
                     <div class="inner">
-                        <h3>#</h3>
+                        <h3><i class="fa fa-bars" aria-hidden="true"></i></h3>
 
                         <p>Final Tabulation</p>
                     </div>
@@ -60,7 +60,7 @@
                 <!-- small box -->
                 <div class="small-box bg-red">
                     <div class="inner">
-                        <h3>65</h3>
+                        <h3><i class="fa fa-key" aria-hidden="true"></i></h3>
 
                         <p>Generate Result</p>
                     </div>

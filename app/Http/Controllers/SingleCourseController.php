@@ -45,7 +45,7 @@ class SingleCourseController extends Controller
         $student = Student::where('reg_no', $data['reg_no'])->first();
         if($student==null)
         {
-            return Redirect::back()->with('error', 'No student with this is. Please create his/her entry first.');
+            return Redirect::back()->with('error', 'No student with this registration no. Please create his/her entry first.');
         }
         try
         {

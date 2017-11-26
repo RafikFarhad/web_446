@@ -39,6 +39,7 @@
                                     <th>Department</th>
                                     <th>Session</th>
                                     <th>Started at</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -48,8 +49,9 @@
                                     <td>{!! $single_course->code !!}</td>
                                     <td><a href="{!! route('single.course', [$single_course->id]) !!}">{!! $single_course->title !!}</a></td>
                                     <td>{!! $single_course->department !!}</td>
-                                    <td>{!! $single_course->session !!}</td>
+                                    <td>{!! MyFunction::GET_SESSION($single_course->session) !!}</td>
                                     <td>{!! Carbon::parse($single_course->created_at)->format('j S F, Y'); !!}</td>
+                                    <td><a href="#" class="btn btn-danger">Delete</a> </td>
                                 </tr>
                                 @endforeach
                             </tbody>

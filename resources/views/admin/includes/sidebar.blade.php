@@ -38,7 +38,7 @@
             @if(isset($course))
                     <li class="treeview {!! Menu::areActiveRoutes(['single.course', 'single.course.students']) !!}">
                         <a href="#">
-                            <i class="fa fa-flash"></i> <span>{!! $course->code.'-'.$course->title !!}</span>
+                            <i class="fa fa-flash"></i> <span>{!! $course->code.'-'.str_limit($course->title, 15) !!}</span>
                                     <span class="pull-right-container">
                           <i class="fa fa-angle-left pull-right"></i>
                 </span>

@@ -8,8 +8,8 @@
         <li class="active"> Individual Course</li>
     </ol>
     <h3>
-        Code: {!! $course->code !!}
-        Session: {!! $course->session.'-'.$course->session+1 !!} <br>
+        Course Code: {!! $course->code !!} <br>
+        Session: {!!  MyFunction::GET_SESSION($course->session) !!} <br>
         Department: {!! $course->department !!}
     </h3>
     <p><strong>Created At: {!! Carbon::parse($course->created_at)->format('d M, Y') !!}</strong></p>
