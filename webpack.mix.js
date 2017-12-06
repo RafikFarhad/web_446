@@ -8,7 +8,7 @@ mix.react('resources/assets/js/app.js', 'public/js')
  mix.js([
  	"public/dist/bower_components/jquery/dist/jquery.min.js",
  	"public/dist/bower_components/jquery-ui/jquery-ui.min.js",
- 	"public/dist/bower_components/bootstrap/dist/js/bootstrap.min.js",
+ 	// "public/dist/bower_components/bootstrap/dist/js/bootstrap.min.js",
  	/*"public/dist/bower_components/raphael/raphael.min.js",
  	"public/dist/bower_components/morris.js/morris.min.js",
  	"public/dist/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js",
