@@ -18,5 +18,6 @@
         <div id="line-example"></div>
         <!-- ./wrapper -->
     @include('admin.includes.script')
+    @yield('script')
     </body>
 </html>

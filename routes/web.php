@@ -29,8 +29,8 @@ Route::group(['middleware' => ['role:teacher']], function () {
 
 //    INDIVIDUAL COURSE
     Route::get('/my-course/{id}', 'SingleCourseController@index')->name('single.course');
-    Route::get('/my-course/{id}/students', 'SingleCourseController@students')->name('single.course.students');
-    Route::post('/my-course/{id}/students/add', 'SingleCourseController@add_students')->name('single.course.students.add');
+    Route::get('/my-course/{id}/teams', 'SingleCourseController@teams')->name('single.course.teams');
+    Route::post('/my-course/{id}/team/add', 'SingleCourseController@add_team')->name('single.course.team.add');
 
 
 });

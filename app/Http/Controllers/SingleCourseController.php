@@ -19,13 +19,13 @@ class SingleCourseController extends Controller
             ->withTitle($course->title);
     }
 
-    public function students($id)
+    public function teams($id)
     {
         $course = Course::findOrFail($id);
-        $students = $course->students;
-        return view('admin.singleCourse.indexStudents')
+        $teams = $course->teams;
+        return view('admin.singleCourse.indexTeams')
             ->with('course', $course)
-            ->with('students', $students)
+            ->with('teams', $teams)
             ->withTitle($course->title);
         return $id;
     }

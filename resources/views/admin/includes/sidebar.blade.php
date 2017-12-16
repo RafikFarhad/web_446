@@ -36,7 +36,7 @@
                 </ul>
             </li>
             @if(isset($course))
-                    <li class="treeview {!! Menu::areActiveRoutes(['single.course', 'single.course.students']) !!}">
+                    <li class="treeview {!! Menu::areActiveRoutes(['single.course', 'single.course.teams']) !!}">
                         <a href="#">
                             <i class="fa fa-flash"></i> <span>{!! $course->code.'-'.str_limit($course->title, 15) !!}</span>
                                     <span class="pull-right-container">
@@ -47,8 +47,8 @@
                             <li class="{!! Menu::isActiveRoute('single.course') !!}">
                                 <a href="{!! route('single.course', [$course->id]) !!}"><i class="fa fa-circle-o"></i> Update Course</a>
                             </li>
-                            <li class="{!! Menu::isActiveRoute('single.course.students') !!}">
-                                <a href="{!! route('single.course.students', [$course->id]) !!}"><i class="fa fa-circle-o"></i> Course Students </a>
+                            <li class="{!! Menu::isActiveRoute('single.course.teams') !!}">
+                                <a href="{!! route('single.course.teams', [$course->id]) !!}"><i class="fa fa-circle-o"></i> Course Students </a>
                             </li>
                         </ul>
                     </li>

@@ -12,14 +12,14 @@
                 <!-- small box -->
                 <div class="small-box bg-aqua">
                     <div class="inner">
-                        <h3> {!! sizeof($course->students) !!} </h3>
+{{--                        <h3> {!! sizeof($course->students) !!} </h3>--}}
                         <p>Total Students</p>
                     </div>
                     <div class="icon">
                         <i class="fa fa-users"></i>
                     </div>
-                    <a href="{!! route('single.course.students', [$course->id]) !!}" class="small-box-footer">
-                        Course Students<i class="fa fa-arrow-circle-right"></i>
+                    <a href="{!! route('single.course.teams', [$course->id]) !!}" class="small-box-footer">
+                        Course Teams<i class="fa fa-arrow-circle-right"></i>
                     </a>
                 </div>
                 {{----}}

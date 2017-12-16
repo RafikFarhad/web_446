@@ -14,22 +14,22 @@ class PivotForExamStudents extends Migration
      */
     public function up()
     {
-        Schema::create('exam_course_student', function (Blueprint $table) {
+        Schema::create('exam_team', function (Blueprint $table) {
             $table->integer('exam_id')->unsigned();
-            $table->integer('course_id')->unsigned();
-            $table->integer('student_id')->unsigned();
+            $table->integer('team_id')->unsigned();
             
-            $table->foreign('student_id')->references('id')->on('students')
+            $table->foreign('team_id')->references('id')->on('teams')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-            $table->foreign('course_id')->references('id')->on('courses')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+//            $table->foreign('course_id')->references('id')->on('courses')
+//                ->onDelete('cascade')
+//                ->onUpdate('cascade');
             $table->foreign('exam_id')->references('id')->on('exams')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
             $table->integer('mark')->default(0);
-            $table->primary(['exam_id', 'course_id', 'student_id']);
+            $table->primary(['exam_id', 'team_id']);
+            $table->timestamps();
         });
     }
 
@@ -41,7 +41,7 @@ class PivotForExamStudents extends Migration
     public function down()
     {
         DB::statement('SET FOREIGN_KEY_CHECKS = 0');
-        Schema::dropIfExists('exam_student');
+        Schema::dropIfExists('exam_team');
         DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

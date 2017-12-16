@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Course extends Model
 {
-    public function students()
+    public function teams()
     {
-        return $this->belongsToMany('App\Student');
+        return $this->hasMany('App\Team');
     }
 }
