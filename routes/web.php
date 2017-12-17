@@ -31,6 +31,13 @@ Route::group(['middleware' => ['role:teacher']], function () {
     Route::get('/my-course/{id}', 'SingleCourseController@index')->name('single.course');
     Route::get('/my-course/{id}/teams', 'SingleCourseController@teams')->name('single.course.teams');
     Route::post('/my-course/{id}/team/add', 'SingleCourseController@add_team')->name('single.course.team.add');
+    Route::post('/my-course/{id}/team/edit', 'SingleCourseController@edit_team')->name('single.course.team.edit');
+    Route::post('/my-course/{id}/team/delete/{team_id}', 'SingleCourseController@delete_team')->name('single.course.team.delete');
+
+    Route::get('/my-course/{id}/exams', 'SingleCourseExamController@exams')->name('single.course.exams');
+    Route::post('/my-course/{id}/exam/add', 'SingleCourseExamController@add_exam')->name('single.course.exam.add');
+    Route::post('/my-course/{id}/exam/edit', 'SingleCourseExamController@edit_exam')->name('single.course.exam.edit');
+    Route::post('/my-course/{id}/exam/delete/{exam_id}', 'SingleCourseExamController@delete_exam')->name('single.course.exam.delete');
 
 
 });

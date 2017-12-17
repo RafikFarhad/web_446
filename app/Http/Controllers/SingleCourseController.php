@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Course;
 use App\Student;
+use App\Team;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Mockery\Exception;
 use Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
@@ -30,33 +34,128 @@ class SingleCourseController extends Controller
         return $id;
     }
 
-    public function add_students($id)
+    public function add_team($id)
     {
         $data = Input::all();
         $rules = [
-            'reg_no' => 'required|size:10'
+            'team_name' => 'required|between:3,30',
+            'member' => 'required'
         ];
         $validation = Validator::make($data, $rules);
         if($validation->fails())
         {
             return Redirect::back()->withErrors($validation);
         }
+        DB::beginTransaction();
         $course = Course::findOrFail($id);
-        $student = Student::where('reg_no', $data['reg_no'])->first();
-        if($student==null)
+        $team = new Team();
+        $team->name = $data['team_name'];
+        $team->course_id = $course->id;
+        $team->save();
+        $message = [];
+        foreach ($data['member'] as $member)
         {
-            return Redirect::back()->with('error', 'No student with this registration no. Please create his/her entry first.');
+            if($member==null) continue;
+            $student = Student::where('reg_no', $member)->first();
+
+            if ($student == null) {
+                array_push($message, 'No student with registration number: '.$member.'.');
+                continue;
+            }
+            try {
+                $team->students()->attach($student->id);
+            } catch (\Exception $e) {
+                array_push($message, $e->getMessage());
+                array_push($message, 'Registration no: '.$member.' already added to this course.');
+            }
+        }
+        if(sizeof($message)==0)
+        {
+            DB::commit();
+            return Redirect::back()->with('success', 'Added successfully');
+        }
+        DB::rollback();
+        return Redirect::back()->withInput()->withErrors($message);
+    }
+
+    public function edit_team($id)
+    {
+        $data = Input::all();
+        $rules = [
+            'team_id' => 'required',
+            'team_name' => 'required|between:3,30',
+            'member' => 'required'
+        ];
+        $validation = Validator::make($data, $rules);
+        if($validation->fails())
+        {
+            return Redirect::back()->withErrors($validation);
         }
         try
         {
-            $course->students()->attach($student->id);
+            $course = Course::findOrFail($id);
+            DB::beginTransaction();
+            if($course->id==Auth::user()->id)
+            {
+                $team = Team::findOrFail($data['team_id']);
+                $team->name = $data['team_name'];
+                $team->save();
+                $message = [];
+                $students = [];
+                foreach ($data['member'] as $member)
+                {
+                    if($member==null) continue;
+                    $student = Student::where('reg_no', $member)->first();
+
+                    if ($student == null) {
+                        array_push($message, 'No student with registration number: '.$member.'.');
+                        continue;
+                    }
+                    array_push($students, $student->id);
+                }
+                try {
+                    $team->students()->sync($students);
+                } catch (\Exception $e) {
+                    array_push($message, $e->getMessage());
+                    array_push($message, 'Same student can\'t be in two team');
+                }
+                if(sizeof($message)==0)
+                {
+                    DB::commit();
+                    return Redirect::back()->with('success', 'Updated successfully');
+                }
+                DB::rollback();
+                return Redirect::back()->withInput()->withErrors($message);
+            }
+            else throw new Exception("No Access.");
         }
-        catch(\Exception $e)
+        catch (\Exception $e)
         {
-            return Redirect::back()->with('error', 'Already added to this course.');
+            return Redirect::back()->with('error', $e->getMessage()); //TODO:: delete this
+            return Redirect::back()->with('error', 'Something went wrong.');
         }
-        return Redirect::back()->with('success', 'Added successfully');
     }
+
+    public function delete_team($id, $team_id)
+    {
+        try
+        {
+            $course = Course::findOrFail($id);
+            if($course->id==Auth::user()->id)
+            {
+                $team = Team::findOrFail($team_id);
+                $team->delete();
+            }
+            else throw new Exception("No Access.");
+            return Redirect::back()->with('success', 'Team deleted successfully');
+        }
+        catch (\Exception $e)
+        {
+            return Redirect::back()->with('error', $e->getMessage()); //TODO:: delete this
+            return Redirect::back()->with('error', 'Something went wrong.');
+        }
+    }
+
 
 
 }

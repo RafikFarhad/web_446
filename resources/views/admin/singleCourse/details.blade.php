@@ -12,7 +12,7 @@
                 <!-- small box -->
                 <div class="small-box bg-aqua">
                     <div class="inner">
-{{--                        <h3> {!! sizeof($course->students) !!} </h3>--}}
+                        <h3> {!! $course->student_count() !!} </h3>
                         <p>Total Students</p>
                     </div>
                     <div class="icon">
@@ -29,14 +29,16 @@
                 <!-- small box -->
                 <div class="small-box bg-green">
                     <div class="inner">
-                        <h3>0</h3>
+                        <h3>{!! $course->exam_count() !!} </h3>
 
                         <p>Total # of Exam</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-stats-bars"></i>
                     </div>
-                    <a href="#" class="small-box-footer">Add Exam <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="{!! route('single.course.exams', [$course->id]) !!}" class="small-box-footer">
+                        Course Exams<i class="fa fa-arrow-circle-right"></i>
+                    </a>
                 </div>
             </div>
             <!-- ./col -->
