@@ -37,7 +37,7 @@ class SingleCourseExamController extends Controller
             return Redirect::back()->withErrors($validation);
         }
         $course = Course::findOrFail($id);
-        if($course->id==Auth::user()->id) {
+        if($course->user_id==Auth::user()->id) {
             $exam = new Exam();
             $exam->name = $data['exam_name'];
             $exam->full_mark = $data['full_mark'];
@@ -66,7 +66,7 @@ class SingleCourseExamController extends Controller
             return Redirect::back()->withErrors($validation);
         }
         $course = Course::findOrFail($id);
-        if($course->id==Auth::user()->id) {
+        if($course->user_id==Auth::user()->id) {
             $exam = Exam::findOrfail($data['exam_id']);
             $exam->name = $data['exam_name'];
             $exam->full_mark = $data['full_mark'];
@@ -85,12 +85,12 @@ class SingleCourseExamController extends Controller
         try
         {
             $course = Course::findOrFail($id);
-            if($course->id==Auth::user()->id)
+            if($course->user_id==Auth::user()->id)
             {
                 $exam = Exam::findOrFail($exam_id);
                 $exam->delete();
             }
-            else throw new Exception("No Access.");
+            else throw new \Exception("No Access.");
             return Redirect::back()->with('success', 'Test deleted successfully');
         }
         catch (\Exception $e)

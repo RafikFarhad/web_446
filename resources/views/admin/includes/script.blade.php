@@ -39,6 +39,7 @@
 
 
 <script src="{!! url('js/app.js') !!}"></script>
+<script src="{!! url('dist/js/xedit.js') !!}"></script>
 {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/js/bootstrap-dialog.min.js"></script>--}}
 <script>
     $.widget.bridge('uibutton', $.ui.button);

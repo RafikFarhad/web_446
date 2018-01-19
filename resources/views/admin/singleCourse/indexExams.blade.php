@@ -76,7 +76,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Edit {!! $exam->name !!}</h4>
+                        <h4 class="modal-title">Edit: <strong>{!! $exam->name !!}</strong></h4>
                     </div>
                     <form action="{!! route('single.course.exam.edit', [$course->id]) !!}" method="POST">
                         <div class="modal-body">
@@ -115,14 +115,11 @@
                                 </div>
                                 <!-- /.box-body -->
                                 <div class="box-footer">
-                                    <button type="submit" class="btn btn-success pull-right">Update Team !!!</button>
+                                    <button type="submit" class="btn btn-success pull-right">Update Exam Details !!!</button>
                                 </div>
                                 <!-- /.box-footer -->
                             </div>
 
-                        </div>
-                        <div class="modal-footer" style="    margin-top: 10px">
-                            <button type="submit" class="btn btn-default"> Add !</button>
                         </div>
                     </form>
                 </div>

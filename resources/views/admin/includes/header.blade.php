@@ -36,6 +36,7 @@
     <link rel="stylesheet" href="{!! url('css/app.css') !!}">
     {{--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/css/bootstrap-dialog.min.css">--}}
     <link rel="stylesheet" href="{!! url('dist/custom.css') !!}">
+    <link rel="stylesheet" href="{!! url('dist/css/xedit.css') !!}">
     <link rel="icon" href="{!! asset('favicon.ico') !!}">
     <!-- Google Font -->
     {{--<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">--}}

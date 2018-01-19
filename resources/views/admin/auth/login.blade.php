@@ -4,7 +4,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
-        <a href="{!! route('web.login') !!}"><b>Infancy</b>IT</a>
+        <a href="{!! route('web.login') !!}"><b>SUST</b>Sohayok</a>
     </div>
 @include('admin.includes.alert')
     <!-- /.login-logo -->

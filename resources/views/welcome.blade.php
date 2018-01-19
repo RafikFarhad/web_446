@@ -53,6 +53,7 @@
             <ul class="nav navbar-nav navbar-right">
                 @if(Auth::check())
                     <li class="active"><a href="#home">Home</a></li>
+                    <li><a href="{!! route('home') !!}">Dashboard</a></li>
                 @else
                     <li><a href="{!! route('login')!!}">Login</a></li>
                     <li><a href="{!! route('register')!!}">Register</a></li>
